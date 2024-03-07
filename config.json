@@ -1,10 +1,18 @@
 {
-    "title":"阿荣自习室",
+    "title":"㞢卄",
     "displayTitle":"㞢卄",
     "subTitle":"是非对错，有时只是角度问题！",
     "homeUrl":"https://zhangguirong.github.io",
     "avatarUrl":"https://telegraph-image-6nq.pages.dev/file/1cf5224eb9123f170461d.png",
     "faviconUrl":"https://telegraph-image-6nq.pages.dev/file/1cf5224eb9123f170461d.png",
     "singlePage":[],
-    "GMEEK_VERSION":"last"
+    "GMEEK_VERSION":"last",
+    "email":"zgr_0413@163.com",
+    "startSite":"03/07/2024",
+    "onePageListNum":15,
+    "commentLabelColor":"#006b75",
+    "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
+    "i18n":"CN",
+    "nightTheme":"dark_colorblind",
+    "bottomText":"❤️ 转载文章请注明出处，谢谢！❤️"
 }
