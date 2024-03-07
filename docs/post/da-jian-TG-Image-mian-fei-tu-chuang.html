@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.org/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://telegraph-image-6nq.pages.dev/file/1cf5224eb9123f170461d.png">
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<meta name="description" content="搭建TG-Image免费图床">
+<title>搭建TG-Image免费图床</title>
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">搭建TG-Image免费图床</h1>
+<div class="title-right">
+    
+    <a href="https://zhangguirong.github.io"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    
+    <a href="https://github.com/zhangguirong/zhangguirong.github.io/issues/2" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+    
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>Telegraph-Image 图床，是一款开源的图床系统，旨在为博客或网站提供高质量的图片托管服务。通过 Telegraph-Image，您可以轻松地上传、管理和引用图片，同时保证图片的加载速度和稳定性。无需服务器，无限空间，免费使用。</p>
+<p>图床特性：</p>
+<p>无限图片储存数量，你可以上传不限数量的图片。<br>
+无需购买服务器，托管于Cloudflare的网络上，当使用量不超过Cloudflare的免费额度时，完全免费。<br>
+无需购买域名，可以使用Cloudflare Pages提供的*.pages.dev的免费二级域名，同时也支持绑定自定义域名。<br>
+支持图片审查API，可根据需要开启，开启后不良图片将自动屏蔽，不再加载。<br>
+支持后台图片管理，可以对上传的图片进行在线预览，添加白名单，黑名单等操作。<br>
+准备工作：</p>
+<p>注册 <a href="https://github.com/">Github</a> 和 <a href="https://www.cloudflare.com/" rel="nofollow">Cloudflare</a> 账户并登录。<br>
+最好拥有1个域名并托管在Cloudflare中。<br>
+搭建步骤：</p>
+<p>Fork项目。<br>
+在 <a href="https://github.com/cf-pages/Telegraph-Image">Telegraph-Image项目</a>主页点击Fork按钮，页面中什么都不要改，直接点击Create fork按钮，等待片刻就创建完成。</p>
+<p>连接到Github。<br>
+进入Cloudflare，点击左侧Workers和Pages-&gt;概述菜单，【点击创建应用程序】，切换到Pages界面，点击连接到git。<br>
+在弹出界面中选择Github，并点击连接Github按钮，之后，Cloudflare会自动引导你到Github授权页面（如果没有登录Github，则会先到登录界面）。<br>
+接着，选择Only Select repositories，并选择上面fork好的项目，然后点击Install &amp; Authorize按钮，确认完成授权和开始安装。<br>
+最后，Github可能会要求你输入账号密码，以确认上面的授权。输入你的Github密码并Confirm。</p>
+<p>部署图床。<br>
+确认授权后，会从Github自动跳回到Cloudflare中，继续开始后续的部署设置。<br>
+首先，选中上面授权好的Github项目，点击开始设置。<br>
+项目名称可以自定义，生产分支建议保持默认的main，其他默认。<br>
+拉到页面下面，点击保存并部署，等待Pages自动部署项目完成。<br>
+当看到成功提示时，表示图床已经部署完成了。此时CF会自动分配一个默认的免费域名【<a href="https://telegraph-image-yht.pages.dev/" rel="nofollow">示例</a>】 。<br>
+点击域名查看是否可以打开，也可以进行上传测试。</p>
+<p>自定义域名。<br>
+进入项目页面，切换到自定义域页面。<br>
+点击设置自定义域，输入你自己想用的二级域名，并点击继续按钮。<br>
+Cloudflare将自动在域名DNS中添加一个CNAME解析记录，将自定义域名指向默认分配的域名。直接点击激活域按钮，然后等待验证即可。<br>
+自定义域验证完成后，系统自动配置好了SSL证书。此时就可以使用新的域名访问图床系统了。</p>
+<p>后台设置：</p>
+<p>配置管理后台。<br>
+打开Workers和Pages-&gt;KV管理，点击右上角创建命名空间按钮，创建一个名为img_url的命名空间。<br>
+打开 Telegraph-Image 项目，进入设置里的函数选项。拉到页面的下面，找到KV命名空间绑定模块。点击添加绑定按钮，将变量名称和KV命名空间均设置为img_url，然后保存。<br>
+切换到环境变量页面，点击制作中的添加变量按钮，添加两个环境变量。变量名分别是BASIC_USER和BASIC_PASS，分别代表管理员的用户名和密码，然后保存。【当然，你也可以不设置这两个变量，这时候管理后台就是无需验证即可登录。但是你可以结合Cloudflare Access服务实现支持邮件验证码、Microsoft、Github等第三方帐号登录方式，更加灵活强大。如果使用Cloudflare Access，则需要对/admin和/api/manage/*两个路径进行保护。】<br>
+打开项目部署详细信息，在管理部署那里选择重新部署点击，等待重新部署完成即可。<br>
+访问项目域名，在域名后加/admin 回车，输入刚配置的账号密码即可进入后台，可以对图片进行管理，可以进行白名单，黑名单和删除操作。<br>
+后台图片状态信息字段含义：</p>
+<p>ListType表示图片当前是否在黑白名单当中。<br>
+None则表示既不在黑名单中也不在白名单中。<br>
+White表示在在白名单中。<br>
+Block表示在黑名单中。<br>
+TimeStamp图片首次加载的时间戳。<br>
+Label图片审查的结果。<br>
+开启内容审查。<br>
+打开<a href="https://jialikemeng.github.io/post/moderatecontent" rel="nofollow">ModerateContent</a>网站，点击SIGN UP，输入邮箱，点击SUBMIT，界面上就直接为你生成API Key，复制并保存下来。<br>
+在项目的设置-&gt;环境界面中，添加一个环境变量，名称为：ModerateContentApiKey，值就是上面获得的API Key。<br>
+重新部署系统。</p>
+<p>更新图床系统。<br>
+如果Telegraph-Image项目更新了，需要添加新的KV命名空间或环境变量，则先在Cloudflare的项目中配置好。<br>
+回到Github中，在Telegraph-Image项目页面上点击Sync fork-&gt;Update branch即可。</p>
+<p>注意事项</p>
+<p>每天最多100,000次免费读取操作，图片每加载一次都会占用该额度。建议在Cloudflare上开启域名缓存设置，这样仅当缓存未命中时才会占用该额度。如果额度用完了，则黑白名单等功能可能会失效。<br>
+每天最多1,000次免费删除操作，每有一条图片记录都会占用该额度，超过了将无法删除图片记录。<br>
+每天最多1,000次免费列出操作，每打开或刷新一次后台/admin都会占用该额度，超过了将无法进行后台图片管理。<br>
+设置了黑名单的图片无法进行访问。<br>
+启图片审查后，不良图片会被自动屏蔽，不支持加载。<br>
+上传的单个文件最大支持5MB。<br>
+上传图片之后后台却看不到图片，你需要在上传图片后复制图片URL进行一次访问，即可在后台看到图片信息。<br>
+每次修改部署项目的KV、环境变量等，记得要重新部署，否则不会生效。<br>
+参看<a href="https://github.com/cf-pages/Telegraph-Image">项目页</a>及<a href="https://mp.weixin.qq.com/s/gVl1yojC07B81_iQaxxZWw" rel="nofollow">介绍页1</a>和<a href="https://%5Bmp.weixin.qq.com/s/hbpCxE3dYZY1sgt2H3JffA%5D(https://mp.weixin.qq.com/s/hbpCxE3dYZY1sgt2H3JffA)" rel="nofollow">介绍页2</a>。</p>
+<p>其他基于Telegraph+Cloudflare的图床项目：<br>
+<a href="https://github.com/x-dr/telegraph-Image">telegraph-Image</a>，<a href="https://img.131213.xyz/" rel="nofollow">演示图床</a>；<br>
+<a href="https://github.com/csznet/tgState">tgState</a>，<a href="https://tgstate.vercel.app/" rel="nofollow">演示图床1</a>，<a href="https://tgstate.ikun123.com/" rel="nofollow">演示图床2</a>；<br>
+<a href="https://github.com/missuo/Telegraph-Image-Hosting">Telegraph-Image-Hosting</a>，<a href="https://missuo.ru/" rel="nofollow">演示图床</a>；<br>
+<a href="https://github.com/ifyour/cf-image-hosting">Cloudflare Image Hosting</a>，<a href="https://images.mingming.dev/" rel="nofollow">演示图床</a>。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://zhangguirong.github.io"> 阿荣自习室 </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if(""!=""){
+    var now=new Date();
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek last %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","zhangguirong/zhangguirong.github.io");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+
+</html>
