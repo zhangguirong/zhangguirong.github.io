@@ -12,8 +12,8 @@
         else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
     </script>
     
-<meta name="description" content="㞢卄 search page">
-<title>㞢卄 - Tag</title>
+<meta name="description" content="知行 search page">
+<title>知行 - Tag</title>
 
 </head>
 <style>
@@ -75,7 +75,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <nav class="SideNav"></nav>
 <div class="notFind" style="display:none;font-size:24px;margin:8px;">Not Find</div>
 </div>
-    <div id="footer">Copyright © <span id="year"></span><a href="https://zhangguirong.github.io"> 㞢卄 </a>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://zhangguirong.github.io"> 知行 </a>
 <p>
 <span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
 </p>
@@ -220,7 +220,7 @@ function setClassDisplay(lable){
     let lists = document.getElementsByClassName("lists");
     let tagTitle = document.getElementsByClassName("tagTitle")[0];
     tagTitle.innerHTML="Tag #"+lable;
-    document.title=lable+" - 㞢卄";
+    document.title=lable+" - 知行";
     document.getElementsByClassName("subnav-search-input")[0].value='';
     if(lable=="All"){
         for(let i = 0; i < lists.length; i++){lists[i].style.display='block';}
@@ -248,8 +248,8 @@ function searchShow(){
     let tagTitle = document.getElementsByClassName("tagTitle")[0];
     let searchInput = document.getElementsByClassName("subnav-search-input")[0].value;
     tagTitle.innerHTML="Search #"+searchInput;
-    if(searchInput==''){document.title="Search - 㞢卄";}
-    else{document.title=searchInput+" - 㞢卄";}
+    if(searchInput==''){document.title="Search - 知行";}
+    else{document.title=searchInput+" - 知行";}
     let a=0;
     window.location.hash="#"+(searchInput);
     for(let i = 0; i < lists.length; i++){
