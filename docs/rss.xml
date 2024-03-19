@@ -1,5 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>知行</title><link>https://zhangguirong.github.io</link><description>行无限，路漫漫</description><copyright>知行</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://telegraph-image-6nq.pages.dev/file/fdfe8c11793d49ce6b0f8.png</url><title>avatar</title><link>https://zhangguirong.github.io</link></image><lastBuildDate>Mon, 18 Mar 2024 09:22:22 +0000</lastBuildDate><managingEditor>知行</managingEditor><ttl>60</ttl><webMaster>知行</webMaster><item><title>论歌单如何从网抑云|QQ音乐平台转移至Spotify</title><link>https://zhangguirong.github.io/post/lun-ge-dan-ru-he-cong-wang-yi-yun-%7CQQ-yin-le-ping-tai-zhuan-yi-zhi-Spotify.html</link><description>### 起因&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>知行</title><link>https://zhangguirong.github.io</link><description>行无限，路漫漫</description><copyright>知行</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://telegraph-image-6nq.pages.dev/file/fdfe8c11793d49ce6b0f8.png</url><title>avatar</title><link>https://zhangguirong.github.io</link></image><lastBuildDate>Tue, 19 Mar 2024 06:42:01 +0000</lastBuildDate><managingEditor>知行</managingEditor><ttl>60</ttl><webMaster>知行</webMaster><item><title>jetbrains 全家桶激活（自定义激活码+在线激活+所有付费插件）一站搞定</title><link>https://zhangguirong.github.io/post/jetbrains%20-quan-jia-tong-ji-huo-%EF%BC%88-zi-ding-yi-ji-huo-ma-%2B-zai-xian-ji-huo-%2B-suo-you-fu-fei-cha-jian-%EF%BC%89-yi-zhan-gao-ding.html</link><description>1. 下载 [ja-netfilter 18](https://gitee.com/ja-netfilter/ja-netfilter/releases) 的最新版和 [https://jbls.ide-soft.com 43](https://jbls.ide-soft.com/) 置顶中的 config 文件&#13;
+2. 解压并覆盖 config 到 ja-netfilter 原本的 config&#13;
+3. 修改IDEA的 idea.vmoptions 文件(文件在哪, Google 一下),在末尾填上&#13;
+&#13;
+--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED&#13;
+--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED&#13;
+&#13;
+-javaagent:/xxx/ja-netfilter.jar&#13;
+将其中的 /xxx/ja-netfilter.jar 替换为你自己的路径&#13;
+&#13;
+4. 打开IDEA, 填入激活码&#13;
+激活 IDEA本体: 在[https://jbls.ide-soft.com 43](https://jbls.ide-soft.com/) 获取对应本体的激活码,粘贴到 Activation Code 中&#13;
+激活插件: 点击[https://jbls.ide-soft.com 43](https://jbls.ide-soft.com/) 中的 All Plugins 项的按钮会获得到一段猴油(tampermonkey)脚本, 没有猴油的话就去 Google 浏览器插件商店下载,接着手动添加脚本到猴油中.&#13;
+打开 [https://plugins.jetbrains.com 15](https://plugins.jetbrains.com/) 搜索你想要激活的插件, 点击 CLICK TO GENERATE ACTIVATION CODE 按钮就能得到该插件的激活码, 粘入到插件的 Activation Code 中即可。</description><guid isPermaLink="true">https://zhangguirong.github.io/post/jetbrains%20-quan-jia-tong-ji-huo-%EF%BC%88-zi-ding-yi-ji-huo-ma-%2B-zai-xian-ji-huo-%2B-suo-you-fu-fei-cha-jian-%EF%BC%89-yi-zhan-gao-ding.html</guid><pubDate>Tue, 19 Mar 2024 06:41:36 +0000</pubDate></item><item><title>论歌单如何从网抑云|QQ音乐平台转移至Spotify</title><link>https://zhangguirong.github.io/post/lun-ge-dan-ru-he-cong-wang-yi-yun-%7CQQ-yin-le-ping-tai-zhuan-yi-zhi-Spotify.html</link><description>### 起因&#13;
 &#13;
 认真上班摸鱼的时候水贴水到了 [[@maxzs](https://linux.do/u/maxzs)](https://linux.do/u/maxzs)headphones [[这篇帖子 5](https://linux.do/t/topic/32438)](https://linux.do/t/topic/32438)，讲述了如何使用Github开源项目[[BlockTheSpot 3](https://github.com/mrpond/BlockTheSpot)](https://github.com/mrpond/BlockTheSpot)解锁Spotify高级版&#13;
 值得注意的是此开源项目的Readme部分，解锁除下载外的所有高级功能，想要下载的佬友可以移步至本论坛 [[@nextstrain](https://linux.do/u/nextstrain)](https://linux.do/u/nextstrain)baby_bottle 的[[帖子 2](https://linux.do/t/topic/19035)](https://linux.do/t/topic/19035)&#13;
