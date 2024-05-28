@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>知行</title><link>https://zhangguirong.github.io</link><description>行无限，路漫漫</description><copyright>知行</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://telegraph-image-6nq.pages.dev/file/fdfe8c11793d49ce6b0f8.png</url><title>avatar</title><link>https://zhangguirong.github.io</link></image><lastBuildDate>Tue, 02 Apr 2024 16:17:18 +0000</lastBuildDate><managingEditor>知行</managingEditor><ttl>60</ttl><webMaster>知行</webMaster><item><title>jetbrains 全家桶激活（自定义激活码+在线激活+所有付费插件）一站搞定</title><link>https://zhangguirong.github.io/post/jetbrains%20-quan-jia-tong-ji-huo-%EF%BC%88-zi-ding-yi-ji-huo-ma-%2B-zai-xian-ji-huo-%2B-suo-you-fu-fei-cha-jian-%EF%BC%89-yi-zhan-gao-ding.html</link><description>1. 下载 [ja-netfilter 18](https://gitee.com/ja-netfilter/ja-netfilter/releases) 的最新版和 [https://jbls.ide-soft.com 43](https://jbls.ide-soft.com/) 置顶中的 config 文件&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>知行</title><link>https://zhangguirong.github.io</link><description>行无限，路漫漫</description><copyright>知行</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://telegraph-image-6nq.pages.dev/file/fdfe8c11793d49ce6b0f8.png</url><title>avatar</title><link>https://zhangguirong.github.io</link></image><lastBuildDate>Tue, 28 May 2024 16:17:34 +0000</lastBuildDate><managingEditor>知行</managingEditor><ttl>60</ttl><webMaster>知行</webMaster><item><title>jetbrains 全家桶激活（自定义激活码+在线激活+所有付费插件）一站搞定</title><link>https://zhangguirong.github.io/post/jetbrains%20-quan-jia-tong-ji-huo-%EF%BC%88-zi-ding-yi-ji-huo-ma-%2B-zai-xian-ji-huo-%2B-suo-you-fu-fei-cha-jian-%EF%BC%89-yi-zhan-gao-ding.html</link><description>1. 下载 [ja-netfilter 18](https://gitee.com/ja-netfilter/ja-netfilter/releases) 的最新版和 [https://jbls.ide-soft.com 43](https://jbls.ide-soft.com/) 置顶中的 config 文件&#13;
 2. 解压并覆盖 config 到 ja-netfilter 原本的 config&#13;
 3. 修改IDEA的 idea.vmoptions 文件(文件在哪, Google 一下),在末尾填上&#13;
 &#13;
@@ -62,7 +62,7 @@ Features:&#13;
 &#13;
 1. 这时候你可以选择自己部署一份[[Netease-to-Youtube-or-Spotify 3](https://github.com/yueyericardo/Netease-to-Youtube-or-Spotify)](https://github.com/yueyericardo/Netease-to-Youtube-or-Spotify) 或者是选择直接打开[[在线网页 2](https://yyrcd.com/n2s/)](https://yyrcd.com/n2s/)&#13;
 &#13;
-   &lt;img src="https://cdn.linux.do/uploads/default/original/3X/9/5/9564855e58799e988980ba2a18ce83f25279fef9.png" style="zoom:67%;" /&gt;&#13;
+   &lt;img src='https://cdn.linux.do/uploads/default/original/3X/9/5/9564855e58799e988980ba2a18ce83f25279fef9.png' style='zoom:67%;' /&gt;&#13;
 &#13;
 2. 按照页面提示输入刚刚获得的id后等待片刻，在下面就可以复制我们的歌单了&#13;
 &#13;
